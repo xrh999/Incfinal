@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "115575793031",
+    "project_id": "inaltsk",
+    "storage_bucket": "inaltsk.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115575793031:android:7fac2de1f4c5687fb1df22",
+        "android_client_info": {
+          "package_name": "com.anonymous.finaltsk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnpUigJIVvmpZAYYcGWVKkvZ2MZGwpqr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

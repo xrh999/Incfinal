@@ -1,0 +1,53 @@
+<html>
+    <head></head>
+    <body>
+        <p>Build a Pyramid</p>
+        <input type="text" id = "input-text">
+        <button id="submit">Print Pyramid!</button>
+        <p id = "output"></p>
+        <script>
+        document.getElementById("submit").onclick = () => {
+            console.log("yes")
+            const input = document.getElementById("input-text").value
+            console.log(input)
+            for (let count=1 ;count <= input.length; count++) {
+                document.getElementById("output").innerHTML = input.slice(0,count)+ "<br>"
+                console.log(count)
+                console.log(input)
+            }
+        }
+        </script>
+    </body>
+</html>
+<!-- <head></head>
+<body>
+    <h1>Build a Pyramid</h1>
+    <input id="input-text">
+    <button id="submit">Print Pyramid!</button>
+
+
+    <script>
+        document.getElementById('submit').onclick =()=> {
+            // Get the word from the input field
+            const word = document.getElementById('input-text').value;
+
+            const outputDiv = document.getElementById('output');
+            
+            // Clear previous output
+            outputDiv.innerHTML = '';
+
+            // Outer loop for rows
+            for (let count = 1; i <= word.length; i++) {
+                let pyramidRow = '';
+                for (let count2 = 0; j < i; j++) {
+                    pyramidRow += word[j]; // Add character to the row
+                }
+                // Print each row
+                const rowElement = document.createElement('p');
+                rowElement.textContent = pyramidRow;
+                outputDiv.appendChild(rowElement);
+            }
+        }
+    </script>
+</body>
+</html> -->

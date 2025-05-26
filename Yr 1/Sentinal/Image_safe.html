@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<title>Image Safe</title>
+<body>
+    <h1>Programmable Super-Secret Passcode Protected Image Safe</h1>
+    <p>This is a safe made from 8 hours of blood, sweat and rage to store your image in so make sure this <a href="https://en.wikipedia.org/wiki/Safe">safe</a> in <a href="https://dictionary.cambridge.org/dictionary/english/safe">safe</a>  hands!!</p>
+    <br>
+    <p id="SENTENCE">Enter the url of the image to store in the safe. Press L to lock the image in the safe </p>
+    <input id="img_url">
+    <button id="image-button">See your image!</button>
+    <br>
+    <textarea id="password_textarea" readonly = "true" style ="font-size: 22px;"></textarea>
+    <br>
+    <br/>
+    <button id="1" style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 1 </button>
+    <button id="2"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 2 </button>
+    <button id="3"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 3 </button>
+    <br>
+    <button id="4"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 4 </button>
+    <button id="5"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 5 </button>
+    <button id="6"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 6 </button>
+    <button id="0"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 0 </button>
+
+    <br/>
+    <button id="7"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 7 </button>
+    <button id="8"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 8 </button>
+    <button id="9"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> 9 </button>
+    <br>
+    <br>
+    <br>
+
+    <button id="clear" style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> C </button>
+    <button id="lock"style="width:75px;height:75px;font-size:25px;background-color:green;color:white"> L</button>
+    <button id="unlock"style="width:75px;height:75px;font-size:25px;background-color:green;color:white; display:none"> UL</button>
+    <br>
+    <img id="picture">
+
+
+    <script>
+        var password = ''
+        var textElement = document.getElementById('password_textarea')
+        var saveText = textElement.innerHTML
+        document.getElementById("1").onclick =()=>{
+            password += 1
+            textElement.innerHTML = password
+        }
+        document.getElementById("2").onclick =()=>{
+            password += 2
+            textElement.innerHTML = password
+        }
+        document.getElementById("3").onclick =()=>{
+            password += 3
+            textElement.innerHTML = password
+        }
+        document.getElementById("4").onclick =()=>{
+            password += 4
+            textElement.innerHTML = password
+        }
+        document.getElementById("5").onclick =()=>{
+            password += 5
+            textElement.innerHTML = password
+        }
+        document.getElementById("6").onclick =()=>{
+            password += 6
+            textElement.innerHTML = password
+        }
+        document.getElementById("7").onclick =()=>{
+            password += 7
+            textElement.innerHTML = password
+        }
+        document.getElementById("8").onclick =()=>{
+            password += 8
+            textElement.innerHTML = password
+        }
+        document.getElementById("9").onclick =()=>{
+            password += 9
+            textElement.innerHTML = password
+        }
+        document.getElementById("0").onclick =()=>{
+            password += 0
+            textElement.innerHTML = password
+        }
+        document.getElementById("clear").onclick =()=>{
+            password = ""
+            textElement.innerHTML = ""
+        }
+        var password_save = ''
+        var imagein = false
+        var img_link = document.getElementById("img_url")
+        var imageStorage = document.getElementById("picture")
+        var imageButton = document.getElementById("image-button")
+        imageButton.onclick = () => {
+            imageStorage.src= img_link.value
+            imagein = true
+        } 
+        document.getElementById("lock").onclick =() =>{
+            if (password>9999999999){
+                alert("The Number is too big(make it 10 numbers or below)")
+            }if (password <1000){
+                alert("The Number is too small(make it 4 numbers or above)")
+            }if (imagein == false){
+                alert("You need to enter an image to store!")
+            }else{
+                password_save = password
+                password = ''
+                textElement.innerHTML = ""
+                imageStorage.style = "display: none"
+                console.log(password_save)
+                img_link.style = "display: none"
+                imageButton.style = "display:none"
+                document.getElementById("lock").style= "display :none"
+                document.getElementById("SENTENCE").innerHTML = "Press the UL button after you enter your code to unlock your image."
+                document.getElementById("unlock").style = "width:75px;height:75px;font-size:25px;background-color:green;color:white;display:block"
+            }
+        }
+        var fail_count = 0
+        document.getElementById("unlock").onclick =()=> {
+            console.log(password_save)
+            if (password_save == password) {
+                imageStorage.style = "display:block"
+                textElement.innerHTML = ""
+                password = ''
+            }else{
+                alert("The password is wrong!")
+                fail_count += 1
+                if (fail_count>3){
+                    imageStorage =''
+                    password_save = ''
+                    password=''
+                    textElement.innerHTML = ""
+                    alert("You entered the wrong code too many times, Self-Destruct activating")
+                    img_link.style = "display: Block"
+                    imageButton.style = "display:Block"
+                    img_link.value = ''
+                }
+            }
+        }
+    </script>
+
+</body>
+
