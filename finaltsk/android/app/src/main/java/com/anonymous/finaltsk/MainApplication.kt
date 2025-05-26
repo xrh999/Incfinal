@@ -1,4 +1,4 @@
-package com.finaltsk
+package com.anonymous.finaltsk
 
 import android.app.Application
 import android.content.res.Configuration
