@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <b>Login</b>
+    <form action="/login" method="get">
+      <input type="text" placeholder="Username" name="username" required>
+      <br/>
+      <input type="password" placeholder="Password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <form action="/resetpassword" method = "get">
+      <button type="submit" >Reset Password</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+  <form action="/register" method="get">
+  <div id="register-section">
+    <b>Register</b>
+    <input type="text" placeholder="Username" id="oldusername" required>
+    <br/>
+    <input type="password" placeholder="Password" id="oldpassword" required>
+    <br>
+    <button type="button" onclick="showSecurityQuestions()">Next</button>
+  </div>
+  <div id="security-section" style="display: none;">
+    <b>Security Questions</b>
+    <input type="hidden" id = "newusername" name = "newusername"></input>
+    <input type="hidden" id = "newpassword" name = "newpassword"></input>
+    <h2>Please provide and answer for one of these questions</h2>
+    <p>1. Who is your favourite person?</p>
+    <p>2. What is your favourite colour?</p>
+    <p>3. What is your favourite hobby?</p>
+    <input type="number" placeholder="Question Number" name="qnnum" required> 
+    <input type="text" placeholder="Answer" name="qnans" required> 
+    <br/>
+    
+    <button type="button" onclick="goBack()">Back</button>
+    <button type="submit">Confirm</button>
+  </div>
+  </form>
+</div>
+  
+</body>
+</html>
+
+<script>
+  function saveUserAndPass(){
+    document.getElementById("newusername").value = document.getElementById("oldusername").value
+    document.getElementById("newpassword").value = document.getElementById("oldpassword").value
+
+  }
+  function showSecurityQuestions() {
+      saveUserAndPass()
+
+      document.getElementById("register-section").style.display = "none";
+      document.getElementById("security-section").style.display = "block";
+    }
+  function goBack() {
+      document.getElementById("register-section").style.display = "block";
+      document.getElementById("security-section").style.display = "none";
+    }
+</script>
